@@ -15,10 +15,11 @@ parameters:
   # After you adapt the pipeline for your needs you should consider creating a variable via UI for ‘WarehouseAdminPassword’
   # To create a variable, click on the Variables button on the top-right of the UI. Make sure you select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
   # You may also convert some of the parameters below to variables.
+  # For the AzureSubscription, use the format: 'My Subscription Name (fcdsss5555-f439-46670-999-38artrrtrt2ae89a)'
   - name: WarehouseAdminPassword
     default: 'XitakeWhom659852641'
   - name: AzureSubscription
-    default: '<Your Subscription Name and ID>'
+    default: 'Microsoft Azure Internal Consumption (fcdc11e4-fdf9-4620-9ec3-38a6a12ae89a)'
   - name: ResourceRegion
     default: 'East US'
   - name: ResourceRegionShort
