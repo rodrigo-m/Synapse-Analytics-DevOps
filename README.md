@@ -6,13 +6,14 @@ To get it working on your environment, follow the steps below.
 
 In summary you will need an Azure Subscription, a GitHub Account, an Azure DevOps account, your own copy of this repo, and an Azure DevOps Project. The steps for pre-requisite setup: 
 
-1. [Sign up or Sign](https://docs.microsoft.com/en-us/learn/modules/create-an-azure-account/) in to [Azure](http://portal.azure.com), make sure you have a Subscription under "Subscriptions". "Subscriptions". 
+1. [Sign up or Sign](https://docs.microsoft.com/en-us/learn/modules/create-an-azure-account/) in to [Azure](http://portal.azure.com), make sure you have at least one Subscription under "Subscriptions".  
 2. [Sign up](https://help.github.com/en/github/getting-started-with-github/signing-up-for-a-new-github-account) or sign in to GitHub. 
 3. Make sure you are signed in to your GitHub account, then go to https://github.com/rodrigo-m/Synapse-Analytics-DevOps (this repo) and click "Fork" on the top right to [create a copy of this repository](https://guides.github.com/activities/forking/) in your account.  
 4. [Sign up or sign in to Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops).
 5. Make sure your DevOps Organization is linked to your Azure Active Directory. See details [here](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/connect-organization-to-azure-ad?view=azure-devops#connect-your-organization-to-azure-ad).
 6. [Create a project](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=azure-devops&tabs=preview-page) in Azure DevOps. Select Git as your source control on step 3 (or under Advanced). 
-7. Import the Azure SQL Data Warehouse deployment extension. [Click here](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment). For step-by-step instructions [click here](./InstallDwDeploymentExtension.md). 
+7. Import the [Azure SQL Data Warehouse deployment](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment) extension. For step-by-step instructions [click here](./InstallDwDeploymentExtension.md). 
+8. In your AzureDevOps Project Settings, create a service connection to your Subscription. Step-by-step instructions [here](./AddServiceConnection.md).
 
 ## Create a Build Pipeline (YAML)
 
@@ -38,21 +39,19 @@ Click Approve & Install
 
 ![](images/2020-04-02-14-49-25.png)
 
-You may be required to select your AzureDevOps account, and after this you will land back on "Review your Pipeline" within your Azure DevOps project. You will see the YAML pipeline that builds the AdventureWorksDW project, i.e. will read the database code and generate a dacpac for deployment.
-
-Note that Azure DevOps recognized the standard name "azure-pipelines.yml" at the root of the repo. This file has a pipeline that essentially builds the database project and copies some scripts to the output area called "drop". The collection of files produced by this pipeline, the artifacts, will be referenced in later stages of the  pipeline.  
-
-Note that you have several parameters at the beginning of the pipeline. Parameter values can be adjusted when you run the pipeline. 
-
-Replace the value '<Your Subscription Name and ID>' with the subscription name and ID that you wish the deploy resorces to. 
-
-Make sure you save the pipeline if you adjust the default values of any of the parameters.
-
-
-
-Click "Run" to run this pipeline.  
+You may be required to select your AzureDevOps account, and after this you will land back on "Review your Pipeline" within your Azure DevOps project.This is a YAML pipeline. 
 
 ![](images/2020-04-02-14-51-58.png)
+
+Note that Azure DevOps recognized the standard name "azure-pipelines.yml" at the root of the repo. This file has a pipeline that essentially builds the database project, publishes the output and scripts to an area called "drop", then deploys the solution and dependent resources to dev and QA ennvironments. The collection of files produced by this pipeline, or artifacts, are referenced in later stages of the pipeline.  
+
+Note that you have several parameters at the beginning of the pipeline. Parameter values can be adjusted when you run the pipeline.
+
+Replace the value '<Your Subscription Name and ID>' with the subscription name and ID that you wish the deploy resorces to then click "Save and Run" on the top right.
+
+![](images/2020-06-18-16-43-03.png)
+
+
 
 Make sure your pipeline run is successful before you proceed: 
 
@@ -84,4 +83,7 @@ Now select "Build" then "Build Solution" on the top menu and confirm that you ca
 
 ![](images/2020-04-02-15-51-24.png)
 
+Your setup is complete.
+
+After making modifications to database objects in Visual Studio, pushing changes to Git will trigger the YAML pipeline you created above.
 

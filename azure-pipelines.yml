@@ -17,8 +17,9 @@ parameters:
   # You may also convert some of the parameters below to variables.
   - name: WarehouseAdminPassword
     default: 'XitakeWhom659852641'
+  # Adjust the default value below if you selected a different name for the Service Connection to your subscription. 
   - name: AzureSubscription
-    default: '<Your Subscription Name and ID>'
+    default: 'Service Connection to Subscription'
   - name: ResourceRegion
     default: 'East US'
   - name: ResourceRegionShort
