@@ -15,7 +15,7 @@ In summary you will need an Azure Subscription, a GitHub Account, an Azure DevOp
 7. Import the [Azure SQL Data Warehouse deployment](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment) extension. For step-by-step instructions [click here](./InstallDwDeploymentExtension.md). 
 8. In your AzureDevOps Project Settings, create a service connection to your Subscription. Step-by-step instructions [here](./AddServiceConnection.md).
 
-## Create a Build Pipeline (YAML)
+## Create a Pipeline (YAML) to Build and Deploy
 
 In this section you will create a pipeline and reference the GitHub repository you forked.
 
