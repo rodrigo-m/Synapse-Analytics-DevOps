@@ -204,7 +204,6 @@
     </None>
     <None Include="ws-01.publish.xml" />
     <None Include="azure-pipelines.yml" />
-    <None Include="AdventureWorksDW-release-pipeline.json" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\PreDeploymentMain.sql">
