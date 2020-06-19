@@ -27,7 +27,8 @@
     [AddressLine2]         NVARCHAR (120) NULL,
     [Phone]                NVARCHAR (20)  NULL,
     [DateFirstPurchase]    DATE           NULL,
-    [CommuteDistance]      NVARCHAR (15)  NULL
+    [CommuteDistance]      NVARCHAR (15)  NULL,
+    [TravelProfileKey]     INT NULL
 )
 WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = HASH([CustomerKey]));
 
