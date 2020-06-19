@@ -1,5 +1,5 @@
 # Synapse-Analytics-DevOps
-Sample build and release pipelines to automate schema changes with SQL Synapse SQL Pools (formery SQL DW). Using a YAML pipeline with tthree stages: (1) Build (2) Deploy to a Development environment and (3) Deploy to a QA environment.
+Sample build and release pipelines to automate schema change releases with SQL Synapse SQL Pools (formery SQL DW). Using a YAML pipeline with three stages: (1) Build (2) Deploy to a Development environment and (3) Deploy to a QA environment.
 
 To get it working on your environment, follow the steps below.
 ## Pre-requisites
